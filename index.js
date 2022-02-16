@@ -36,7 +36,7 @@ app.use(async (context, next) => {
   //!(context.request.url.pathname.includes("/api/v1/accounts") && context.request.method === 'POST')
   if (
     context.request.url.pathname.includes("/api/v1") &&
-    !(context.request.url.pathname.includes("/api/v1/surveys") &&
+    !(context.request.url.pathname.includes("/api/v1/data") &&
       context.request.method === "GET") &&
     !(context.request.url.pathname.includes("/api/v1/accounts") &&
       context.request.method === "POST")

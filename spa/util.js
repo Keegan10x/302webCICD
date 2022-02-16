@@ -1,5 +1,42 @@
 /* util.js */
 
+export async function loadData(param, uri){
+	const options = {
+			method: "GET",
+			headers: {
+				"Content-Type": "application/vnd.api+json"
+		}
+	}
+	const rsp = await fetch(uri, options)
+	const result = await rsp.json()
+  return result.data[param]
+}
+
+export function displayData(array, node, templateName, paramName){
+	const template = document.querySelector(templateName)
+	const fragment = template.content.cloneNode(true)
+	const table = document.createElement('table')
+	const thead = document.createElement('thead')
+	const tr1 = document.createElement('tr')
+	const th = document.createElement('th')
+  th.innerText = paramName
+	const tbody = document.createElement('tbody')
+	for(const val of array){
+		const tr = document.createElement('tr')
+		const td = document.createElement('td')
+		td.innerText = val
+		tr.appendChild(td)
+		tbody.appendChild(tr)
+	}
+	tr1.appendChild(th)
+	thead.appendChild(tr1)
+	table.appendChild(thead)
+	table.appendChild(tbody)
+	fragment.appendChild(table)
+	node.appendChild(fragment)
+}
+
+
 export function showMessage(message, delay = 3000) {
   console.log(message);
   document.querySelector("aside p").innerText = message;

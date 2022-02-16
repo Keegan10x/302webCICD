@@ -3,18 +3,12 @@
 /* routes.js */
 import { readCSV } from "https://deno.land/x/csv/mod.ts";
 import { Router } from "https://deno.land/x/oak@v6.5.1/mod.ts";
-
 import { extractCredentials, saveFile } from "./modules/util.js";
 import { login, register } from "./modules/accounts.js";
-//import { getUserId, saveSurvey, getMySurveys, addQuestion, getNumberOfQuestions, getAllFrom, getSurveyQuestions, addResponse, hasUserDone, getAverageScore, getRoles} from "./modules/dbinterface.js";
-import { creds, question, response, survey } from "./modules/schema.js";
-import {
-  sensorData,
-  accountsSch,
-  myaccountsPostSch,
-  questionSch,
-} from "./modules/schema.js";
+import { creds } from "./modules/schema.js";
+import { sensorData, accountsSch, myaccountsPostSch} from "./modules/schema.js";
 const router = new Router();
+
 
 //Write new GET and POST methods here
 router.get("/api/v1/data", async (context) => {
@@ -63,7 +57,7 @@ router.get("/api/v1/data", async (context) => {
   }
 
   sensorData.data = dataObj
-  console.log(sensorData);
+  //console.log(JSON.stringify(sensorData, null, 2));
   context.response.body = JSON.stringify(sensorData, null, 2);
 });
 

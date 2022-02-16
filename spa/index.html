@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf8" />
 		<meta name="viewport" content="width=device-width", initial-scale="1.0" />
-		<title>Single Page App</title>
+		<title>Environment App</title>
 		<link rel="stylesheet" href="style/main.css">
 		<script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.4.0/showdown.min.js"></script>
@@ -12,15 +12,13 @@
 	<body>
 		<aside class="hidden"><p></p></aside>
 		<header>
-			<h1>Single Page App</h1>
 			<p>&nbsp;</p>
+			<h1>Environment Data</h1>
 		</header>
 		<nav>
 			<ul>
 				<li><a href="/">Home</a></li>
 				<li><a href="/register">Register</a></li>
-				<li><a href="/newsurvey">New survey</a></li>
-				<li><a href="/mySurveys">My surveys</a></li>
 				<li><a href="/login">Log in</a></li>
 				<li><a href="/logout">Log out</a></li>
 			</ul>
@@ -34,8 +32,15 @@
 		</footer>
 	</body>
 	<template id="home">
-
+		<section>
+		<a href="/time">Time</a>
+		<a href="/temp">Temperature</a>
+		<a href="/prss">Pressure</a>
+		<a href="/alt">Altitude</a>
+		<a href="/hmdt">Humidity</a>
+		</section>
 	</template>
+
 	<template id="login">
 		<form name="login">
 			<p><label for="email">Username</label><br /><input type="text" name="user" placeholder="username" /></p>
@@ -43,6 +48,7 @@
 			<button type="submit">Log in</button>
 		</form>
 	</template>
+
 	<template id="register">
 		<form name="register">
 			<p><label for="name">Username</label><br /><input type="text" name="user" placeholder="full name" /></p>
@@ -50,45 +56,47 @@
 			<button type="submit">Create account</button>
 		</form>
 	</template>
+
 	<template id="logout">
 			<p>Do you want to log out?</p>
 			<button>OK</button><button>Cancel</button>
-		
-	
-	<!-- My new templates -->
-
 	</template>
-	<template id="newsurvey">
+
+	
+	<template id="uploadCsv">
 		<form name="upload" method="post">
-			<p><label for="surveyName">Survey Name</label><br /><input type="text" name="surveyName" required/></p>
-			<p><label for="description">Survey Description</label><br /><textarea name="description" maxlength="280" required></textarea></p>
-			<input type="text" name="surveyDescription" hidden/>
-			<button type="submit">Create</button>
+		<fieldset>
+			<legend><label for="pass">Upload a CSV file</label></legend>
+			<input type="file" name="file" />
+		</fieldset>
+			<button type="submit">Upload</button>
 		</form>
-		<!-- Render Markdown -->
-		<h3>Markdown Description</h3>
-		<article id="mkdn"></article>
 	</template>
 	
 	
-	
-	<template id="surveys">
-		<hr />
-	</template>
+
 	
 	
-	<template id="surveyQuestions">
+	<template id="time">
 	
 	</template>
 	
 	
-	<template id="mySurveys">
+	<template id="temp">
 
 	</template>
 	
 	
-	<template id="addQuestions">
-		<main id="qcards"></main>
+	<template id="prss">
+
+	</template>
+
+	<template id="alt">
+
+	</template>
+
+	<template id="hmdt">
+
 	</template>
 	
 		

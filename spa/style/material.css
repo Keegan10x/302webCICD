@@ -185,6 +185,8 @@ section > p {
 	font-size: 1em;
 }
 
+
+
 hr {
 	border: 2px solid #607D8B;
 	border-radius: 6px;
@@ -278,15 +280,15 @@ button{
 }
 
 
-
 section > a{
+	
 	width: 99%;
 
 	color: white;
 	text-decoration: none;
 	background-color: #607D8B;
-	border-radius: 0.5em;
-	padding: 4px;
+	border-radius: 0.8em;
+	
 	align-items: center;
 	border: solid black;	
 	
@@ -300,8 +302,11 @@ section > a{
 	height: 2em;
 	text-align: center;
 	text-transform: uppercase;
-	padding-top: 0.62em;
-	font-size: 0.8em;
+	padding-top: 1.5em;
+	padding-bottom: 1.56em;
+	margin-bottom: 25px;
+
+	font-size: 1em;
 }
 
 hr {
@@ -313,7 +318,26 @@ label, input[type="radio"]{
 	
 }
 
+table {
+  
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 10px;
+}
 
+th, td {
+	
+  text-align: center;
+  padding: 4px;
+  border: solid;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+ 
+th {
+  background-color:  #7fa7ba;
+  color: black;
+}
 
 
 /* ========== FOOTER ========== */

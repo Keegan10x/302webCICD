@@ -12,7 +12,7 @@ export async function setup(node) {
   try {
     console.log("LOGIN: setup");
     console.log(node);
-    document.querySelector("header p").innerText = "Login Page";
+
     customiseNavbar(["home", "register", "login"]);
     node.querySelector("form").addEventListener("submit", await login);
   } catch (err) {
@@ -32,7 +32,8 @@ async function login() {
   if (response.status === 200) {
     localStorage.setItem("username", response.json.data.username);
     localStorage.setItem("authorization", token);
-    //console.log("###############logging rsp", response)
+
+    //document.querySelector("header p").innerText = `Hi ${response.json.data}`;
     showMessage(`you are logged in as ${response.json.data}`);
     await loadPage("home");
   } else {
