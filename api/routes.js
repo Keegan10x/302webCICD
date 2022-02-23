@@ -7,6 +7,7 @@ import { extractCredentials, saveFile } from "./modules/util.js";
 import { login, register } from "./modules/accounts.js";
 import { creds } from "./modules/schema.js";
 import { sensorData, accountsSch, myaccountsPostSch} from "./modules/schema.js";
+
 const router = new Router();
 
 
