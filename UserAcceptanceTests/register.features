@@ -1,0 +1,20 @@
+Feature: test register
+  Testing the register page functionality & verifying it worked successfully
+
+Scenario: Acessing "register" view
+  Given I am on the "Home" view
+    And I am not logged in
+  When I click on the "register" tab
+  Then I should see the "register" form
+    when I enter my details  and click submit
+    then I should be redirected to the "Home" view 
+
+Scenario: Logging in with correct credentials used from registering
+  Given I am on the "login" view
+  When I enter my new details
+    And given they are correct
+  Then I should be redirected to "Home" & see the CSV upload button
+
+
+
+ 

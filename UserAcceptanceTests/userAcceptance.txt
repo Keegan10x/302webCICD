@@ -1,0 +1,42 @@
+User Acceptance Tests for Features
+
+login 
+-click login
+-enter details
+-click enter button
+-load home screen with "upload csv button"
+
+Kadeem
+register
+(logged out)
+-on homepage
+-click register button
+-enter details
+-submit
+-login with details
+
+Kam
+click time, temperature, altitude, humidity 
+-on homepage
+-click button
+-see data
+
+
+upload CSV
+(must be logged in)
+- click on home button
+-click upload csv button
+-click chose file
+-upload CSV file
+-click submit
+-go back to home
+-click one of the data buttons
+
+
+logout
+
+
+
+nice :)
+
+

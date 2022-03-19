@@ -1,0 +1,22 @@
+Feature: test login
+  Testing the single page applications login functionality
+
+Scenario: Acessing "login" view
+  Given I am on the "Home" view
+    And I am not logged in
+  When I click on the "login" tab
+  Then I should see the "login" form
+
+Scenario: Logging in with correct credentials
+  Given I am on the "login" view
+  When I enter my details
+    And given they are correct
+  Then I should be redirected to "Home" & see the CSV upload button
+
+Scenario: Selecting features of environment app (Kam)
+  Given I am on the "home" view
+    And I am logged in
+  When I click on an individual feature such as "time", "temperature", "pressure", "altitude" or "humidity"
+  Then I should see the data for the home environment of my chosen feature. 
+
+  
