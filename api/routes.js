@@ -1,5 +1,3 @@
-//https://jsonapi.org/format/
-//https://github.coventry.ac.uk/agile/projects/blob/master/19%20Survey.md
 /* routes.js */
 import { readCSV } from "https://deno.land/x/csv/mod.ts";
 import { Router } from "https://deno.land/x/oak@v6.5.1/mod.ts";
@@ -7,7 +5,6 @@ import { extractCredentials, saveFile } from "./modules/util.js";
 import { login, register } from "./modules/accounts.js";
 import { creds } from "./modules/schema.js";
 import { sensorData, accountsSch, myaccountsPostSch} from "./modules/schema.js";
-
 const router = new Router();
 
 
