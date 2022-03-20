@@ -5,9 +5,10 @@ import { extractCredentials, saveFile } from "./modules/util.js";
 import { login, register } from "./modules/accounts.js";
 import { creds } from "./modules/schema.js";
 import { sensorData, accountsSch, myaccountsPostSch} from "./modules/schema.js";
+import { db } from "./modules/db.js";
 const router = new Router();
 
-//ftest
+
 //Write new GET and POST methods here
 router.get("/api/v1/data", async (context) => {
   //console.log(await Deno.readDir('./spa/uploads'))
@@ -165,6 +166,41 @@ router.post("/api/v1/accounts", async (context) => {
     context.response.body = JSON.stringify(myaccountsPostSch, null, 2);
   }
 });
+
+//account deleteion request
+router.post("/api/v1/leavers", async (context) => {
+  console.log("POST /api/acc");
+  const body = await context.request.body();
+  const data = await body.value;
+  console.log(data);
+  myaccountsPostSch.links.self =
+    `https://${context.request.url.host}${context.request.url.pathname}`;
+  try {
+    const valid = creds(data);
+    if (valid === false) throw creds.errors;
+    console.log( await login(data) )
+
+    const sql = `DELETE FROM accounts WHERE user = "${data.user}"`
+    const result = await db.query(sql)
+    myaccountsPostSch.result = result
+    myaccountsPostSch.status = 201;
+    myaccountsPostSch.response = "Account Closed";
+    myaccountsPostSch.errors = null;
+    context.response.status = 201
+    console.log(myaccountsPostSch);
+    context.response.body = JSON.stringify(myaccountsPostSch, null, 2);
+  
+  } catch (err) {
+    console.log(err);
+    myaccountsPostSch.status = 406;
+    myaccountsPostSch.response = "Couldnt Close Account";
+    myaccountsPostSch.errors = creds.errors;
+    context.response.status = 406;
+    console.log(myaccountsPostSch);
+    context.response.body = JSON.stringify(myaccountsPostSch, null, 2);
+  }
+});
+
 
 router.get("/(.*)", async (context) => {
   // 	const data = await Deno.readTextFile('static/404.html')

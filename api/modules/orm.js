@@ -16,5 +16,3 @@ VALUES(${data.uid}, ${data.time}, ${data.temperature}, ${data.pressure}, ${data.
 
 
 
-
-
