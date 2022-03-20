@@ -7,7 +7,7 @@ import { creds } from "./modules/schema.js";
 import { sensorData, accountsSch, myaccountsPostSch} from "./modules/schema.js";
 const router = new Router();
 
-//m
+//next
 //Write new GET and POST methods here
 router.get("/api/v1/data", async (context) => {
   //console.log(await Deno.readDir('./spa/uploads'))
