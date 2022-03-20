@@ -14,5 +14,5 @@ jobs:
         uses: denoland/setup-deno@v1
         with:
           deno-version: v1.x
-      - name: Run Test Suite
-        run: deno test
+      - name: Test api code
+        run: deno test --allow-all
