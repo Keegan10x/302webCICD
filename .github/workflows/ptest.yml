@@ -15,6 +15,6 @@ jobs:
         with:
           deno-version: v1.x
       - name: Build Deno Module
-        run: deno run --reload index.js
+        run: deno run --allow-all --unstable index.js
       - name: Run Test Suite
         run: deno test --allow-none
