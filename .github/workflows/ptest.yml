@@ -14,7 +14,5 @@ jobs:
         uses: denoland/setup-deno@v1
         with:
           deno-version: v1.x
-      - name: Build & Test
-        run: |
-          deno run --allow-all --unstable index.js
-          deno test --allow-none
+      - name: Test api code
+        run: deno test --allow-all
